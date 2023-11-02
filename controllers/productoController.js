@@ -1,7 +1,7 @@
 import Productos from "../models/productos.js"
 
 
-//Obtener todos los productos 
+//todos los productos 
 
 export async function getAllProducts(req, res) {
     try {

@@ -1,5 +1,5 @@
 import Jwt  from "jsonwebtoken"
-import Usuarios from "../Models/Usuarios" 
+import Usuarios from "../models/usuarios" 
 
 
 

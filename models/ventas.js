@@ -4,27 +4,25 @@ import Carrito from "../models/carrito.js"
 
 const Ventas = db.define('Ventas',
     {
-        venta_id: { type: DataTypes.INTEGER,
+        id_ventas: { type: DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement: true },
-        cantidad: { type: DataTypes.INTEGER},
-        subtotal: {type:DataTypes.FLOAT},
-        carrito_id: {type:DataTypes.INTEGER,references:{model:'Carrito',key:'carrito_id',},},
-        producto_id: {type:DataTypes.INTEGER,references:{model:'Productos',key:'producto_id',},},
+        total: {type:DataTypes.FLOAT},
+        id_carrito: {type:DataTypes.INTEGER,references:{model:'Carrito',key:'id_carrito',},},
     },
     {
         tableName: 'ventas',
         timestamps: false, //le elimina el creatAt y el editedAt de la db
     }
     )
-    Venta.belongsTo(Carrito, { foreignKey: 'carrito_id' });
+    Venta.belongsTo(Carrito, { foreignKey: 'id_carrito' });
 
-    Carrito.hasMany(Venta, { foreignKey:'venta_id'});
+    Carrito.hasMany(Venta, { foreignKey:'id_venta'});
 
 
-    Producto.belongsTo(Venta, { foreignKey: 'producto_id' });
+    Producto.belongsTo(Venta, { foreignKey: 'id_producto' });
 
-Venta.hasMany(Producto, { foreignKey:'producto_id'});
+Venta.hasMany(Producto, { foreignKey:'id_producto'});
 
 
 

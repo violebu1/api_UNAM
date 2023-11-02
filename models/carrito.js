@@ -1,27 +1,33 @@
-import db from '../db/connection.js';
-import { DataTypes } from 'sequelize';
+import db from "../db/connection.js";
+import { DataTypes } from "sequelize";
 import Ventas from "../models/Venta.js";
-import Cliente from "../models/clientes.js";
+import Cliente from "./usuarios.js";
 
-const Carrito = db.define('Carrito',
-    {
-        carrito_id: { type: DataTypes.INTEGER,
-            primaryKey:true,
-            autoIncrement: true },
-        monto: {type:DataTypes.FLOAT},
-        clientes_id: {type:DataTypes.INTEGER,references:{model:'Clientes',key:'clientes_id',},},
+const Carrito = db.define(
+  "Carrito",
+  {
+    id_carrito: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        tableName: 'Carrito',
-        timestamps: false, //le elimina el creatAt y el editedAt de la db
-    }
-    )
+    id_producto: { 
+      type: DataTypes.INTEGER,
+      references: { model: "Productos", key: "id_producto"},
+     },
+    id_usuario: {
+      type: DataTypes.INTEGER,
+      references: { model: "Usuarios", key: "id_usuario" },
+    },
+  },
+  {
+    tableName: "Carrito",
+    timestamps: false, //le elimina el creatAt y el editedAt de la db
+  }
+);
 
-Venta.belongsTo(Carrito, { foreignKey: 'carrito_id' });
+Venta.belongsTo(Carrito, { foreignKey: "id_carrito" });
 
-Carrito.hasMany(Venta, { foreignKey:'venta_id'});
+Carrito.hasMany(Venta, { foreignKey: "id_venta" });
 
-export default Carrito
-
-
-
+export default Carrito;
