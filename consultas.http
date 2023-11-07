@@ -1,18 +1,39 @@
-//GET
+###GET
 ### todos los clientes
 GET http://localhost:1234/usuarios
 ### clientes por id
-GET http://localhost:1234/usuarios/id
+GET http://localhost:1234/usuarios/3
 ### todos los productos
 GET http://localhost:1234/productos
 ### producto por id
-GET http://localhost:1234/productos/id
+GET http://localhost:1234/productos/3
+
+### GET todas las ventas
+GET http://localhost:1234/ventas
+
+### GET una venta por ID
+GET http://localhost:1234/ventas/1
+
+### GET todos los usuarios
+GET http://localhost:1234/usuarios
+
+### GET un usuario por ID
+GET http://localhost:1234/usuarios/2
+### GET todos los productos
+GET http://localhost:1234/productos
+
+### GET un producto por ID
+GET http://localhost:1234/productos/3
+### GET todos los carritos
+GET http://localhost:1234/carritos
+
+### GET un carrito por ID
+GET http://localhost:1234/carritos/1
 
 
-
-//POST
-### nuevo cliente
-POST http://localhost:1234/usuarios
+###POST
+### nuevo producto
+POST http://localhost:1234/productos
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJwYWJsb2FsZWphbmRyb2UiLCJuaXZlbCI6MSwiZXhwIjoxNjk2NTQ2OTA4ODcyLCJpYXQiOjE2OTY1NDY4NDh9.aFKLkTEtex16pRGj4vT1Dde76KyNEXCmxWwabS0uPvo
 
@@ -21,8 +42,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFya
     "precio": 325.00
 }
 
-### nuevo producto
-POST http://localhost:1234/producto/
+### nuevo usuario
+POST http://localhost:1234/usuarios
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJqdWFucGVyZXoiLCJuaXZlbCI6MSwiZXhwIjoxNjk3MTI5NTQ2MjMzLCJpYXQiOjE2OTcxMjkzMDZ9.f93e70Os8gIqwaqKaSKq1F09C1NQ-rEI3hWk8nq3qKQ
 
@@ -35,30 +56,58 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFya
   "password":"diegopass",
   "nivel": 1
 }
+### Crear una nueva venta
+POST http://localhost:1234/ventas
 
-//PATCH
+### Crear un nuevo carrito
+POST http://localhost:1234/carritos
+
+###PATCH
 ### modificar producto
-PATCH http://localhost:1234/usuarios/id
+PATCH http://localhost:1234/usuarios/2
 Content-Type: application/json
 
 {
   "nombre": "Cara Clarinetes"
 }
 ### modificar producto
-PATCH http://localhost:1234/productos/id
+PATCH http://localhost:1234/productos/2
 Content-Type: application/json
 
 {
     "nombre": "Mixer multiuso ACME PODEROSO"
 }
+### Actualizar una venta por ID
+PATCH http://localhost:1234/ventas/1
+### Actualizar un usuario por ID
+PATCH http://localhost:1234/usuarios/3
+### Actualizar un carrito por ID
+PATCH http://localhost:1234/carritos/2
+### Actualizar un producto por ID
+PATCH http://localhost:1234/productos/3
 
-//DELETE
+
+
+
+###DELETE
 ### borrar usuario
-DELETE http://localhost:1234/usuarios/id
+DELETE http://localhost:1234/usuarios/4
 ### borrar producto
-DELETE http://localhost:1234/productos/id
+DELETE http://localhost:1234/productos/2
 
 
+### Borrar una venta por ID
+DELETE http://localhost:1234/ventas/2
+
+
+
+
+
+
+
+
+### Borrar un carrito por ID
+DELETE http://localhost:1234/carritos/2
 
 
 ### Request desde el formulario de logueo en el frontend
@@ -66,9 +115,15 @@ POST http://localhost:1234/auth
 Content-Type: application/json
 
     {
-        "usuario": "juanperez",
+        "usuario": "Clara Clarinetes",
         "password": "juanpass"
     }
+
+
+
+
+
+
 
 
 

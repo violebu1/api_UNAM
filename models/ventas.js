@@ -1,7 +1,7 @@
 import db from '../db/connection.js';
 import { DataTypes } from 'sequelize';
-import Carrito from "../models/carrito.js"
-
+import Carrito from "./carrito.js";
+import Producto from "./productos.js";
 const Ventas = db.define('Ventas',
     {
         id_ventas: { type: DataTypes.INTEGER,
@@ -15,14 +15,14 @@ const Ventas = db.define('Ventas',
         timestamps: false, //le elimina el creatAt y el editedAt de la db
     }
     )
-    Venta.belongsTo(Carrito, { foreignKey: 'id_carrito' });
+    Ventas.belongsTo(Carrito, { foreignKey: 'id_carrito' });
 
-    Carrito.hasMany(Venta, { foreignKey:'id_venta'});
+    Carrito.hasMany(Ventas, { foreignKey:'id_venta'});
 
 
-    Producto.belongsTo(Venta, { foreignKey: 'id_producto' });
+    Producto.belongsTo(Ventas, { foreignKey: 'id_producto' });
 
-Venta.hasMany(Producto, { foreignKey:'id_producto'});
+Ventas.hasMany(Producto, { foreignKey:'id_producto'});
 
 
 

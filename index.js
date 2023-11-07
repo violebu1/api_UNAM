@@ -4,6 +4,12 @@ import db from './db/connection.js'
 import Producto from './models/productos.js'
 import Usuario from './models/usuarios.js'
 import jwt from 'jsonwebtoken'
+import carritoRouter from './routes/carritoRouter.js'
+import productoRouter from './routes/productoRouter.js'
+import usuariosRouter from './routes/usuariosRouter.js'
+import ventaRouter from './routes/ventaRouter.js'
+
+
 
 const require = createRequire(import.meta.url)
 const datos = require('./datos.json');
@@ -65,6 +71,14 @@ app.use((req, res, next) =>{
 app.get('/', (req, res) => {
     res.status(200).send(html)
 })
+
+
+app.use("/", carritoRouter);
+app.use("/", productoRouter);
+app.use("/", usuariosRouter);
+app.use("/", ventaRouter);
+
+
 
 //validacion de los datos de logueo
 app.post('/auth', async (req, res) => {

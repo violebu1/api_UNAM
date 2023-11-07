@@ -1,5 +1,6 @@
 import Usuarios from "../models/usuarios.js";
 
+
 //todos los usuarios
 export async function getAllUsers(req, res) {
     try {

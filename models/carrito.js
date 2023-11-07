@@ -1,7 +1,5 @@
 import db from "../db/connection.js";
 import { DataTypes } from "sequelize";
-import Ventas from "../models/Venta.js";
-import Cliente from "./usuarios.js";
 
 const Carrito = db.define(
   "Carrito",
@@ -25,9 +23,5 @@ const Carrito = db.define(
     timestamps: false, //le elimina el creatAt y el editedAt de la db
   }
 );
-
-Venta.belongsTo(Carrito, { foreignKey: "id_carrito" });
-
-Carrito.hasMany(Venta, { foreignKey: "id_venta" });
 
 export default Carrito;

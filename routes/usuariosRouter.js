@@ -1,22 +1,21 @@
 import express from "express";
-
 import authenticationToken from "../middlewares/tokenAuthentication.js";
 
-const usuarioRouter = express.Router()
+const usuariosRouter = express.Router()
 
 import {
-    getAllUsuarios,
-    getOnUsuariosById,
-    saveUsuarios,
-    editUsuarios,
-    deleteUsuarios
-} from '../controllers/usuarioController.js'
+    getAllUsers,
+    getOnUsersById,
+    saveUsers,
+    editUsers,
+    deleteUsers
+} from '../controllers/usuariosController.js'
 
-usuarioRouter.get('/usuarios', getAllUsuarios)
-usuarioRouter.get('usuarios:id', getOnUsuariosById)
-usuarioRouter.post('/usuarios', authenticationToken, saveUsuarios)
-usuarioRouter.patch('/usuarios/:id',authenticationToken, editUsuarios)
-usuarioRouter.delete('/usuarios/:id', authenticationToken, deleteUsuarios)
+usuariosRouter.get('/usuarios', getAllUsuarios)
+usuariosRouter.get('usuarios:id', getOnUsuariosById)
+usuariosRouter.post('/usuarios', authenticationToken, saveUsuarios)
+usuariosRouter.patch('/usuarios/:id',authenticationToken, editUsuarios)
+usuariosRouter.delete('/usuarios/:id', authenticationToken, deleteUsuarios)
 
 
-export default usuarioRouter
+export default usuariosRouter
