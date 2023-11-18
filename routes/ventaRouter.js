@@ -9,10 +9,10 @@ import {
     deleteVenta
 } from '../controllers/ventaController.js'
 
-ventaRouter.get('/ventas', getAllVentas);
+
 ventaRouter.get('/ventas/:id', getVentaById);
 ventaRouter.post('/ventas', authenticationToken, createVenta);
-ventaRouter.patch('/ventas/:id', authenticationToken, updateVenta);
+
 ventaRouter.delete('/ventas/:id', authenticationToken, deleteVenta);
 
 export default ventaRouter;

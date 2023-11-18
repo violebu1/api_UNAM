@@ -17,6 +17,12 @@ const Carrito = db.define(
       type: DataTypes.INTEGER,
       references: { model: "Usuarios", key: "id_usuario" },
     },
+    cantidad: {
+      type:DataTypes.INTEGER
+    },
+    precio:{
+      type: DataTypes.FLOAT
+    }
   },
   {
     tableName: "Carrito",

@@ -11,11 +11,11 @@ import {
     deleteUsers
 } from '../controllers/usuariosController.js'
 
-usuariosRouter.get('/usuarios', getAllUsuarios)
-usuariosRouter.get('usuarios:id', getOnUsuariosById)
-usuariosRouter.post('/usuarios', authenticationToken, saveUsuarios)
-usuariosRouter.patch('/usuarios/:id',authenticationToken, editUsuarios)
-usuariosRouter.delete('/usuarios/:id', authenticationToken, deleteUsuarios)
+usuariosRouter.get('/usuarios', getAllUsers)
+usuariosRouter.get('usuarios:id', getOnUsersById)
+usuariosRouter.post('/usuarios', authenticationToken, saveUsers)
+usuariosRouter.patch('/usuarios/:id',authenticationToken, editUsers)
+usuariosRouter.delete('/usuarios/:id', authenticationToken, deleteUsers)
 
 
 export default usuariosRouter
